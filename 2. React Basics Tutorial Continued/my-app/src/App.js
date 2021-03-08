@@ -1,29 +1,39 @@
-// named and default import/exports
-//only one default export module
-//think of module as file
+// stateless functional components
+// class based components
+// state, life cycle methods
+// React Hooks
+// Classes - Syntactical Sugar For Constructor Functions
+// subclass of Component
+// extends from Component Class
+// inherits functionality
+// Component class is used to transfer from basic E6 class.
 
-import React from "react";
+import React, { Component } from "react";
 import { name, age, person } from "./data";
 import Banner from "./components/Header/Banner";
 
-const App = () => (
-  <section>
-    <Banner />
-    <p>this is my content</p>
-    <p>{name}</p>
-    <p>{age}</p>
-    <p>{person.name}</p>
-  </section>
-);
-
-// import * as data from "./data";
 // const App = () => (
-//   <section>
-//     <p>this is my content</p>
-//     <p>{data.name}</p>
-//     <p>{data.age}</p>
-//     <p>{data.person.name}</p>
-//   </section>
+// <section>
+//   <Banner />
+//   <p>this is my content</p>
+//   <p>{name}</p>
+//   <p>{age}</p>
+//   <p>{person.name}</p>
+// </section>
 // );
 
-export default App;
+class App1 extends Component {
+  render() {
+    return (
+      <section>
+        <Banner />
+        <p>this is my content</p>
+        <p>{name}</p>
+        <p>{age}</p>
+        <p>{person.name}</p>
+      </section>
+    );
+  }
+}
+
+export default App1;
