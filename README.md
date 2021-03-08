@@ -70,7 +70,7 @@ React Tutorial and Projects Course
 	npm install react-icons
 		React Icons Documentation:https://react-icons.netlify.com/#/
 
-	npm install styled-components
+	npm install styled-components : https://styled-components.com/docs/basics
 	npm i styled-components
 	import styled from 'styled-components';
 
