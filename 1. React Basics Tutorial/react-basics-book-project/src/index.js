@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 // import "./index.css";
 
-//DESTRUCTURING
+//CHILDREN PROPS
 
 function People() {
   const friends = [
@@ -12,30 +12,26 @@ function People() {
   ];
   return (
     <section>
-      <Person person={friends[0]} />
+      <Person person={friends[0]}>
+        <div>
+          <h1>some heading</h1>
+          <p>some info about </p>
+        </div>
+      </Person>
       <Person person={friends[1]} />
       <Person person={friends[2]} />
     </section>
   );
 }
 
-const person = {
-  name: "john",
-  age: 26
-};
-const { name } = person;
-// console.log(name);
-
-const showPerson = ({ name, age }) => console.log(name, age);
-
-// showPerson(person);
-
-const Person = ({ person: { name, job, age, company } }) => {
-  // const { name, job, age, company } = props.person;
+const Person = props => {
+  const { name, job, age, company } = props.person;
+  const { children } = props;
 
   return (
     <article>
       <h1>{name}</h1>
+      {children}
       <p>{job}</p>
       <p>{age}</p>
       <p>{company}</p>
