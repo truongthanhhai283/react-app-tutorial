@@ -9,7 +9,7 @@ export default class TodoInput extends Component {
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text bg-primary text-white">
+              <div className="input-group-text bg-primary text-white">              
               </div>
             </div>
             <input
@@ -22,9 +22,14 @@ export default class TodoInput extends Component {
           </div>
           <button
             type="submit"
-            className="btn btn-block btn-primary mt-3 text-uppercase"
+            disabled={item ? false : true}
+            className={
+              editItem
+                ? "btn btn-block btn-success mt-3"
+                : "btn btn-block btn-primary mt-3 text-uppercase"
+            }
           >
-            add item
+            {editItem ? "edit item" : "add item"}
           </button>
         </form>
       </div>
