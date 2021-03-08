@@ -59,8 +59,8 @@ React Tutorial and Projects Course
 	npm i react-uuid
 	import uuid from 'react-uuid';
 
-# install icons
-	npm install react-icons
+# install icons: https://react-icons.github.io/react-icons
+	npm install react-icons --save
 	
 # install react-router
 	npm i react-router-dom --save
