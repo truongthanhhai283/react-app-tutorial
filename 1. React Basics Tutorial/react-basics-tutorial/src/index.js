@@ -1,17 +1,20 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-// stateless functional component
-// always return JSX
-// function Greeting() {
-//   return (
-//     <div>
-//       <h1>hello world</h1>
-//     </div>
-//   );
-// }
-//three arguments element, propsObject, children
+//JSX RULES
+//return single element
+// div / section / article
+//use camelCase for html attribute
+//className instead of class
+//close every element
+//formatting
+
 function Greeting() {
-  return React.createElement("div", {});
+  return(
+  <div>
+    <h1>hello world</h1>
+  </div>
+  );
 }
+
 ReactDom.render(<Greeting />, document.getElementById("root"));
