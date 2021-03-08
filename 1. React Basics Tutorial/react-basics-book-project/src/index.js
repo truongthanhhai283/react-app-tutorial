@@ -1,43 +1,24 @@
 import React from "react";
 import ReactDom from "react-dom";
-import "./index.css";
+// import "./index.css";
 //ES6, Nested Components and React Tools
 
-function Books() {
+const btnText = "small button";
+
+function Person() {
+  const btn = "search button";
+  const name = "peter";
+  const lastName = "doe";
   return (
-    <section className="books">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+    <section>
+      <button>{btnText}</button>
+      {/* <h2>{name + " " + lastName}</h2> */}
+      <h2>{`${name} ${lastName}`}</h2>
+      <p>info</p>
+      <p>{12 + 35}</p>
+      {/* <p>{let x = 6}</p> */}
     </section>
   );
 }
-const Book = () => {
-  return (
-    <article className="book">
-      <CoverImage />
-      <Title />
-      <Author />
-    </article>
-  );
-};
-const CoverImage = () => (
-  <img
-    width="200"
-    src="https://images-na.ssl-images-amazon.com/images/I/71N4oeWwYlL._AC_UL200_SR200,200_.jpg"
-    alt="wonkey donkey"
-  />
-);
-const Title = () => (
-  <h1 style={{ fontSize: "2rem", color: "red" }}>The Wonkey Donkey</h1>
-);
-const authorStyle = {
-  letterSpacing: "10px",
-  color: "green"
-};
 
-const Author = () => <p style={authorStyle}>by Craig Smith</p>;
-
-ReactDom.render(<Books />, document.getElementById("root"));
+ReactDom.render(<Person />, document.getElementById("root"));
