@@ -58,3 +58,23 @@ React Tutorial and Projects Course
 # install uuid
 	npm i react-uuid
 	import uuid from 'react-uuid';
+
+# install icons
+	npm install react-icons
+	
+# install react-router
+	npm i react-router-dom --save
+	
+# Dependencies
+	npm install react-router-dom
+	npm install react-icons
+		React Icons Documentation:https://react-icons.netlify.com/#/
+
+	npm install styled-components
+	npm i styled-components
+	import styled from 'styled-components';
+
+
+		Styled Components Documentation: https://www.styled-components.com/docs
+	npm install contentful
+		Contentful: https://www.contentful.com/
