@@ -1,24 +1,36 @@
 import React from "react";
 import ReactDom from "react-dom";
 // import "./index.css";
-//ES6, Nested Components and React Tools
 
-const btnText = "small button";
+//PROPS (PROPERTIES) = ARGUMENTS TO COMPONENTS
 
-function Person() {
-  const btn = "search button";
-  const name = "peter";
-  const lastName = "doe";
+// Paramaters and Arguments
+// function sayName(name) {
+//   console.log(name);
+// }
+// sayName("john");
+
+function People() {
   return (
     <section>
-      <button>{btnText}</button>
-      {/* <h2>{name + " " + lastName}</h2> */}
-      <h2>{`${name} ${lastName}`}</h2>
-      <p>info</p>
-      <p>{12 + 35}</p>
-      {/* <p>{let x = 6}</p> */}
+      <Person name="john doe" job="developer" />
+      <Person name="bob doe" job="designer" />
+      <Person name="susy doe" job="artist" age="22" />
     </section>
   );
 }
 
-ReactDom.render(<Person />, document.getElementById("root"));
+const Person = props => {
+  console.log(props);
+
+  return (
+    <article>
+      <h1>{props.name}</h1>
+      <p>{props.job}</p>
+      <p>{props.age}</p>
+      <hr />
+    </article>
+  );
+};
+
+ReactDom.render(<People />, document.getElementById("root"));
