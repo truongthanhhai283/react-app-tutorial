@@ -78,3 +78,10 @@ React Tutorial and Projects Course
 		Styled Components Documentation: https://www.styled-components.com/docs
 	npm install contentful
 		Contentful: https://www.contentful.com/
+		
+# install bootstrap
+	npm install --save bootstrap
+	npm install --save bootstrap@^4.0.0-alpha.6  react-bootstrap@^0.32.1
+
+
+	
