@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
-
+import "./index.css";
 //ES6, Nested Components and React Tools
 
 function Books() {
   return (
-    <section>
+    <section className="books">
       <Book />
       <Book />
       <Book />
@@ -16,7 +16,7 @@ function Books() {
 }
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <CoverImage />
       <Title />
       <Author />
@@ -30,7 +30,14 @@ const CoverImage = () => (
     alt="wonkey donkey"
   />
 );
-const Title = () => <h1>The Wonkey Donkey</h1>;
-const Author = () => <p>by Craig Smith</p>;
+const Title = () => (
+  <h1 style={{ fontSize: "2rem", color: "red" }}>The Wonkey Donkey</h1>
+);
+const authorStyle = {
+  letterSpacing: "10px",
+  color: "green"
+};
+
+const Author = () => <p style={authorStyle}>by Craig Smith</p>;
 
 ReactDom.render(<Books />, document.getElementById("root"));
