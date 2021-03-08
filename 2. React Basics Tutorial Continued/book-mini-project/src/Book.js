@@ -1,26 +1,27 @@
 import React, { Component } from "react";
-
+// STATE IMMUTABLE !!!!!
+// shallow merge
+// this.setState({})
 export default class Book extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 1
+      count: 1,
+      name: "john"
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick() {
-  //   console.log("you clicked me");
-  //   console.log(this.state.count);
-  // }
-  handleClick = () => {
-    console.log("you clicked me");
-    console.log(this.state.count);
+  addCount = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+  lowerCount = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
+  resetCount = () => {
+    this.setState({ count: 0 });
   };
 
   render() {
-    // console.log(this.props);
-
     const { img, title, author } = this.props.info;
     return (
       <article className="book">
@@ -28,8 +29,16 @@ export default class Book extends Component {
         <div>
           <h4>Title : {title}</h4>
           <h6>Author : {author}</h6>
-          <button type="button" onClick={this.handleClick}>
+          <h3>count : {this.state.count}</h3>
+          <h3>name : {this.state.name}</h3>
+          <button type="button" onClick={this.addCount}>
             add count
+          </button>
+          <button type="button" onClick={this.resetCount}>
+            reset
+          </button>
+          <button type="button" onClick={this.lowerCount}>
+            lower count
           </button>
         </div>
       </article>
