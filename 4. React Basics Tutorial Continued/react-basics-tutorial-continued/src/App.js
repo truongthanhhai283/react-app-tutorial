@@ -1,37 +1,59 @@
 import React, { Component } from "react";
 import "./App.css";
-//uncontrolled inputs
+//React Fragment and this.setState() is asynchronous
+//Functional this.setState()
 
-class Form extends Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    const name = this.refs.myName;
-    const nameValue = name.value;
-
-    const email = this.email.value;
-
-    const text = this.refs.myText;
-    const textValue = text.textContent;
-    text.style.color = "red";
-    console.log(nameValue, email, textValue);
+class Counter extends Component {
+  state = {
+    count: 0
   };
+  hanleIncrease = () => {
+    // console.log("called first :", this.state.count);
+    this.setState(
+      {
+        count: this.state.count + 1
+      }
+      // () => console.log("called second :", this.state.count)
+    );
+    // this.setState({
+    //   count: this.state.count + 2
+    // });
+    // console.log("called third :", this.state.count);
+  };
+  hanleDecrease = () => {
+    console.log("called first :", this.state.count);
+    this.setState(
+      (state, props) => {
+        return { count: state.count - props.amount };
+      },
+      () => console.log("called second :", this.state.count)
+    );
+    // this.setState((state, props) => {
+    //   return { count: state.count - 2 };
+    // });
+    console.log("called third :", this.state.count);
+  };
+
   render() {
     return (
-      <section>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" ref="myName" />
-          <input type="email" ref={orange => (this.email = orange)} />
-          <button type="submit">submit</button>
-        </form>
-        <p ref="myText">hello world</p>
-      </section>
+      <>
+        <div style={{ margin: "3rem", fontSize: "2rem" }}>
+          <button type="button" onClick={this.hanleDecrease}>
+            decrease
+          </button>
+          <span style={{ margin: "1rem" }}>count : {this.state.count}</span>
+          <button type="button" onClick={this.hanleIncrease}>
+            increase
+          </button>
+        </div>
+      </>
     );
   }
 }
 
 class App extends Component {
   render() {
-    return <Form />;
+    return <Counter amount="2" />;
   }
 }
 
