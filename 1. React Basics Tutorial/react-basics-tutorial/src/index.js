@@ -1,8 +1,17 @@
 import React from "react";
 import ReactDom from "react-dom";
 
+// stateless functional component
+// always return JSX
+// function Greeting() {
+//   return (
+//     <div>
+//       <h1>hello world</h1>
+//     </div>
+//   );
+// }
+//three arguments element, propsObject, children
 function Greeting() {
-  return <h4>this is john and this is my first react compoenent</h4>;
+  return React.createElement("div", {});
 }
-
 ReactDom.render(<Greeting />, document.getElementById("root"));
