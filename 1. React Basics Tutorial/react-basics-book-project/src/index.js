@@ -2,32 +2,43 @@ import React from "react";
 import ReactDom from "react-dom";
 // import "./index.css";
 
-//PROPS (PROPERTIES) = ARGUMENTS TO COMPONENTS
-
-// Paramaters and Arguments
-// function sayName(name) {
-//   console.log(name);
-// }
-// sayName("john");
+//DESTRUCTURING
 
 function People() {
+  const friends = [
+    { name: "john", job: "developer", age: 23, company: "apple" },
+    { name: "bob", job: "designer", age: 21, company: "facebook" },
+    { name: "susy", job: "artist", age: 26, company: "google" }
+  ];
   return (
     <section>
-      <Person name="john doe" job="developer" />
-      <Person name="bob doe" job="designer" />
-      <Person name="susy doe" job="artist" age="22" />
+      <Person person={friends[0]} />
+      <Person person={friends[1]} />
+      <Person person={friends[2]} />
     </section>
   );
 }
 
-const Person = props => {
-  console.log(props);
+const person = {
+  name: "john",
+  age: 26
+};
+const { name } = person;
+// console.log(name);
+
+const showPerson = ({ name, age }) => console.log(name, age);
+
+// showPerson(person);
+
+const Person = ({ person: { name, job, age, company } }) => {
+  // const { name, job, age, company } = props.person;
 
   return (
     <article>
-      <h1>{props.name}</h1>
-      <p>{props.job}</p>
-      <p>{props.age}</p>
+      <h1>{name}</h1>
+      <p>{job}</p>
+      <p>{age}</p>
+      <p>{company}</p>
       <hr />
     </article>
   );
