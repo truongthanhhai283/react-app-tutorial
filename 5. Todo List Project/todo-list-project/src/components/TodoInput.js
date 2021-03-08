@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import '../components/todoinput.css';
-
+// hello world
 export default class TodoInput extends Component {
   render() {
     const { item, handleChange, handleSubmit, editItem } = this.props;
@@ -9,7 +9,7 @@ export default class TodoInput extends Component {
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text bg-primary text-white">              
+              <div className="input-group-text bg-primary text-white">
               </div>
             </div>
             <input
