@@ -9,8 +9,11 @@ export default class Booklist extends Component {
     };
   }
 
-  handleDelete = () => {
-    console.log(`i'm from parent component`);
+  handleDelete = id => {
+    const sortedBooks = this.state.books.filter(item => item.id !== id);
+    this.setState({
+      books: sortedBooks
+    });
   };
 
   render() {
