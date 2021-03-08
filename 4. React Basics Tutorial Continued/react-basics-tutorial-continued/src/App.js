@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-// controlled uncontrolled inputs
-// JS
-// const input = document.getElementById('myText');
-// const inputValue = input.value;
-// React
-// value, onChange
+//uncontrolled inputs
 
 class Form extends Component {
   state = {
@@ -25,9 +20,10 @@ class Form extends Component {
     //     firstName: textValue
     //   });
     // }
-
+    // const value = event.target.value.toUpperCase();
+    const value = event.target.value;
     this.setState({
-      [event.target.name]: [event.target.value]
+      [event.target.name]: value
     });
   };
 
