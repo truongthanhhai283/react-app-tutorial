@@ -54,3 +54,7 @@ React Tutorial and Projects Course
 # Deploy netlify with git
 	- build comman: npm run build
 	- build/
+	
+# install uuid
+	npm i react-uuid
+	import uuid from 'react-uuid';
