@@ -8,15 +8,17 @@ export default class Booklist extends Component {
       books: booksData
     };
   }
-  // state = {
 
-  // }
+  handleDelete = () => {
+    console.log(`i'm from parent component`);
+  };
+
   render() {
     return (
       <section>
         <h3>This is our Booklist</h3>
         {this.state.books.map(item => (
-          <Book key={item.id} info={item} />
+          <Book key={item.id} info={item} handleDelete={this.handleDelete} />
         ))}
       </section>
     );
