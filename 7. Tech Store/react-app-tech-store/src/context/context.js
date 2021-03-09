@@ -9,7 +9,6 @@ class ProductProvider extends Component {
   state = {
     sidebarOpen: false,
     cartOpen: false,
-    cartItems: 2,
     links: linkData,
     socialIcons: socialData,
     cart: [],
@@ -21,8 +20,56 @@ class ProductProvider extends Component {
     filteredProducts: [],
     featuredProducts: [],
     singleProduct: {},
-    loading: true
+    loading: false
   };
+  componentDidMount() {
+    //from contentful items
+
+    this.setProducts(items);
+  }
+
+  //set products
+
+  setProducts = products => {
+    let storeProducts = products.map(item => {
+      const { id } = item.sys;
+      const product = { id, ...item.fields };
+      return product;
+    });
+    //  featured products
+    let featuredProducts = storeProducts.filter(item => item.featured === true);
+    this.setState({
+      storeProducts,
+      filteredProducts: storeProducts,
+      featuredProducts,
+      cart: this.getStorageCart(),
+      singleProduct: this.getStorageProduct(),
+      loading: false
+    });
+  };
+  // get cart from local storage
+  getStorageCart = () => {
+    return [];
+  };
+  // get product from local storage
+  getStorageProduct = () => {
+    return {};
+  };
+  // get totals
+  getTotals = () => {};
+  //add totals
+  addTotals = () => {};
+  // sync storage
+  syncStorage = () => {};
+  //add to cart
+  addToCart = id => {
+    console.log(`add to cart ${id}`);
+  };
+  // set single product
+  setSingleProduct = id => {
+    console.log(`set single product ${id}`);
+  };
+
   // handle sidebar
   handleSidebar = () => {
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
@@ -47,7 +94,9 @@ class ProductProvider extends Component {
           handleSidebar: this.handleSidebar,
           handleCart: this.handleCart,
           closeCart: this.closeCart,
-          openCart: this.openCart
+          openCart: this.openCart,
+          addToCart: this.addToCart,
+          setSingleProduct: this.setSingleProduct
         }}
       >
         {this.props.children}
