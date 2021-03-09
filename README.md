@@ -63,10 +63,10 @@ React Tutorial and Projects Course
 	npm install react-icons --save
 	
 # install react-router
+	npm install react-router-dom
 	npm i react-router-dom --save
 	
 # Dependencies
-	npm install react-router-dom
 	npm install react-icons
 		React Icons Documentation:https://react-icons.netlify.com/#/
 

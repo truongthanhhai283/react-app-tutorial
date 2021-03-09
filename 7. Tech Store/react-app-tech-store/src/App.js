@@ -10,13 +10,20 @@ import SingleProduct from "./pages/SingleProductPage";
 import Cart from "./pages/CartPage.js";
 import Default from "./pages/Default.js";
 
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import SideCart from "./components/SideCart";
+import Footer from "./components/Footer";
 class App extends Component {
   render() {
     return (
       <>
         {/* navbar, sidebar, cart,footer*/}
+        <Navbar />
+        <Sidebar />
+        <SideCart />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
@@ -26,6 +33,7 @@ class App extends Component {
           <Route path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
+        <Footer />
       </>
     );
   }
