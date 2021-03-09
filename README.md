@@ -83,5 +83,6 @@ React Tutorial and Projects Course
 	npm install --save bootstrap
 	npm install --save bootstrap@^4.0.0-alpha.6  react-bootstrap@^0.32.1
 
-
+# Contentful 
+	https://app.contentful.com/spaces/4rw6h9yy6xza/home
 	

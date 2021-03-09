@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { linkData } from "./linkData";
 import { socialData } from "./socialData";
-import { items } from "./productData";
+// import { items } from "./productData";
+
+import { client } from "./contentful";
 const ProductContext = React.createContext();
 //Provider
 //Consumer
@@ -28,9 +30,13 @@ class ProductProvider extends Component {
     company: "all",
     shipping: false,
   };
-  componentDidMount() {
-    //from contentful items
-
+  // component did mount
+  async componentDidMount() {
+    const result = await client.getEntries({
+      content_type: "techStoreProduct",
+    });
+    const items = await result.items;
+    // console.log(items);
     this.setProducts(items);
   }
 
@@ -39,8 +45,9 @@ class ProductProvider extends Component {
   setProducts = (products) => {
     let storeProducts = products.map((item) => {
       const { id } = item.sys;
-      const image = item.fields.image.fields.file.url;
-      const product = { id, ...item.fields, image };
+      // const image = item.fields.image.fields.file.url;
+      // const product = { id, ...item.fields, image };
+      const product = { id, ...item.fields };
       return product;
     });
     //  featured products
