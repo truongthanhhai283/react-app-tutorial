@@ -12,7 +12,7 @@ export default function Footer() {
               <div className="row">
                 <div className="col-md-6">
                   <p className="text-capitalize">
-                    Author &copy; Truong Thanh Hai {new Date().getFullYear()}. all
+                    copyright &copy; tech store {new Date().getFullYear()}. all
                     rights reserved{" "}
                   </p>
                 </div>
