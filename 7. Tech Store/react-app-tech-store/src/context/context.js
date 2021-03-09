@@ -20,7 +20,7 @@ class ProductProvider extends Component {
     filteredProducts: [],
     featuredProducts: [],
     singleProduct: {},
-    loading: true
+    loading: false
   };
   componentDidMount() {
     //from contentful items
@@ -65,9 +65,7 @@ class ProductProvider extends Component {
   };
   // get product from local storage
   getStorageProduct = () => {
-    return localStorage.getItem("singleProduct")
-      ? JSON.parse(localStorage.getItem("singleProduct"))
-      : {};
+    return {};
   };
   // get totals
   getTotals = () => {
@@ -132,12 +130,7 @@ class ProductProvider extends Component {
   };
   // set single product
   setSingleProduct = id => {
-    let product = this.state.storeProducts.find(item => item.id === id);
-    localStorage.setItem("singleProduct", JSON.stringify(product));
-    this.setState({
-      singleProduct: { ...product },
-      loading: false
-    });
+    console.log(`set single product ${id}`);
   };
 
   // handle sidebar
@@ -146,7 +139,7 @@ class ProductProvider extends Component {
   };
   // hanldle sart
   handleCart = () => {
-    this.setState({ cartOpen: !this.state.cartOpen });
+    this.setState({ cartOpen: !this.state.sidebarOpen });
   };
   //close cart
   closeCart = () => {
@@ -156,23 +149,6 @@ class ProductProvider extends Component {
   openCart = () => {
     this.setState({ cartOpen: true });
   };
-  //  cart functionality
-  // increment
-  increment = id => {
-    console.log(id);
-  };
-  // decrement
-  decrement = id => {
-    console.log(id);
-  };
-  // removeItem
-  removeItem = id => {
-    console.log(id);
-  };
-  clearCart = () => {
-    console.log("awesome you just cleared the cart");
-  };
-
   render() {
     return (
       <ProductContext.Provider
@@ -183,11 +159,7 @@ class ProductProvider extends Component {
           closeCart: this.closeCart,
           openCart: this.openCart,
           addToCart: this.addToCart,
-          setSingleProduct: this.setSingleProduct,
-          increment: this.increment,
-          decrement: this.decrement,
-          removeItem: this.removeItem,
-          clearCart: this.clearCart
+          setSingleProduct: this.setSingleProduct
         }}
       >
         {this.props.children}
